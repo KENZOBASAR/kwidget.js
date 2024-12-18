@@ -22,7 +22,7 @@ You can replace the color to a hex color as well.
 ```
 - Widget positions -
 Set the widget position to right and left
-For right-
+## For right-
 Note: Right is the default position and you can directly add <widget> and it will be set to right. However the position can be still changed-
 ```
 <script src="kwidget.js">
@@ -30,7 +30,7 @@ Note: Right is the default position and you can directly add <widget> and it wil
    <p>Widget content.</p>
 </widget>
 ```
-For left-
+## For left-
 ```
 <script src="kwidget.js">
 <widget position="left">
