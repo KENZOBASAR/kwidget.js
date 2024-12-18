@@ -3,7 +3,7 @@
 (function () {
     // Create and apply styles dynamically
     const style = document.createElement('style');
-    style.innerHTML = 
+    style.innerHTML = `
         widget {
             display: none;
         }
@@ -58,7 +58,7 @@
             font-size: 18px;
             cursor: pointer;
         }
-    ;
+    `;
     document.head.appendChild(style);
 
     // Function to create a widget
