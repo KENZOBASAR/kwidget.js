@@ -37,4 +37,12 @@ Note: Right is the default position and you can directly add <widget> and it wil
    <p>Widget content.</p>
 </widget>
 ```
-
+- Widget button icon -
+Set the widget button's icon default is ⚙ (Cog)
+```
+<script src="kwidget.js">
+<widget icon="🎄">
+   <p>Widget content.</p>
+</widget>
+```
+You can replace the emoji with anything you want.
