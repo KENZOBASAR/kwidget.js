@@ -58,10 +58,12 @@
 
     // Option to change the settings button emoji
     const settingsButtonEmoji = '⚙️'; // Default emoji
-    const widgetSettingsButtonEmoji = settingsButtonEmoji;
 
     // Function to create widget
     function createWidget() {
+        const widgetElement = document.querySelector('widget');
+        const modalColor = widgetElement?.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
+
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
         widgetButton.innerHTML = 'W';
@@ -69,6 +71,7 @@
 
         const modal = document.createElement('div');
         modal.classList.add('modal');
+        modal.style.backgroundColor = modalColor; // Set modal background color
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
         modalContent.innerHTML = '<p>Loading widget content...</p>';
@@ -76,7 +79,7 @@
 
         const widgetSettingsButton = document.createElement('button');
         widgetSettingsButton.classList.add('widget-settings');
-        widgetSettingsButton.innerHTML = widgetSettingsButtonEmoji; // Use the custom emoji here
+        widgetSettingsButton.innerHTML = settingsButtonEmoji; // Use the custom emoji here
 
         widgetButton.appendChild(widgetSettingsButton);
         document.body.appendChild(modal);
