@@ -11,7 +11,7 @@ How to use kwidget.js
    <p>Widget content.</p>
 </widget>
 ```
-- Widget colours
+- Widget colours -
 Widget colors is to change the color of the modal/Widget
 You can replace the color to a hex color as well.
 ```
@@ -20,3 +20,21 @@ You can replace the color to a hex color as well.
    <p>Widget content.</p>
 </widget>
 ```
+- Widget positions -
+Set the widget position to right and left
+For right-
+Note: Right is the default position and you can directly add <widget> and it will be set to right. However the position can be still changed-
+```
+<script src="kwidget.js">
+<widget position="right">
+   <p>Widget content.</p>
+</widget>
+```
+For left-
+```
+<script src="kwidget.js">
+<widget position="left">
+   <p>Widget content.</p>
+</widget>
+```
+
