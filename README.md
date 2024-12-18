@@ -46,3 +46,28 @@ Set the widget button's icon default is ⚙ (Cog)
 </widget>
 ```
 You can replace the emoji with anything you want.
+
+- Double widgets -
+Also, It also has double widgets with their own buttons
+```
+<script src="kwidget.js">
+<widget icon="🎄" position="left">
+   <p>Widget content.</p>
+</widget>
+<script src="kwidget.js">
+<widget icon="🔥" position="right">
+   <p>Widget content.</p>
+</widget>
+```
+- Change the colour of the button -
+You can also change the color of the button that opens the widget
+```
+<script src="kwidget.js">
+<widget icon="🔥" buttoncolor="red">
+   <p>Widget content.</p>
+</widget>
+<widget icon="🌊" buttoncolor="blue">
+   <p>Widget content.</p>
+</widget>
+```
+You can also replace the colors with hex codes of colors.
