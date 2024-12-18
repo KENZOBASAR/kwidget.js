@@ -8,7 +8,6 @@
         .widget-button {
             position: fixed;
             bottom: 10px;
-            right: 10px;
             background-color: #007bff;
             color: white;
             border: none;
@@ -21,7 +20,6 @@
             display: none;
             position: fixed;
             top: 0;
-            right: 0;
             width: 300px;
             height: 90%;
             background-color: rgba(0, 0, 0, 0.7);
@@ -63,6 +61,7 @@
     function createWidget() {
         const widgetElement = document.querySelector('widget');
         const modalColor = widgetElement?.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
+        const widgetPosition = widgetElement?.getAttribute('position') || 'right'; // Default position
 
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
@@ -83,6 +82,19 @@
 
         widgetButton.appendChild(widgetSettingsButton);
         document.body.appendChild(modal);
+
+        // Adjust position based on the "position" attribute
+        if (widgetPosition === 'left') {
+            widgetButton.style.left = '10px';
+            widgetButton.style.right = 'unset';
+            modal.style.left = '0';
+            modal.style.right = 'unset';
+        } else {
+            widgetButton.style.right = '10px';
+            widgetButton.style.left = 'unset';
+            modal.style.right = '0';
+            modal.style.left = 'unset';
+        }
 
         // Handle click on the widget button
         widgetButton.addEventListener('click', () => {
