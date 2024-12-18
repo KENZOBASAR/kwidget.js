@@ -1,5 +1,3 @@
-// kwidget
-// An api from KCR to add widgets to html.
 (function () {
     // Create and apply styles dynamically
     const style = document.createElement('style');
@@ -9,7 +7,6 @@
         }
         .widget-button {
             position: fixed;
-            bottom: 10px;
             background-color: #007bff;
             color: white;
             border: none;
@@ -91,16 +88,48 @@
         document.body.appendChild(modal);
 
         // Adjust position based on the "position" attribute
-        if (widgetPosition === 'left') {
-            widgetButton.style.left = '10px';
-            widgetButton.style.right = 'unset';
-            modal.style.left = '0';
-            modal.style.right = 'unset';
-        } else {
-            widgetButton.style.right = '10px';
-            widgetButton.style.left = 'unset';
-            modal.style.right = '0';
-            modal.style.left = 'unset';
+        switch (widgetPosition) {
+            case 'top-left':
+                widgetButton.style.top = '10px';
+                widgetButton.style.left = '10px';
+                modal.style.top = '10px';
+                modal.style.left = '10px';
+                break;
+            case 'top-right':
+                widgetButton.style.top = '10px';
+                widgetButton.style.right = '10px';
+                modal.style.top = '10px';
+                modal.style.right = '10px';
+                break;
+            case 'center-top':
+                widgetButton.style.top = '10px';
+                widgetButton.style.left = '50%';
+                widgetButton.style.transform = 'translateX(-50%)';
+                modal.style.top = '10px';
+                modal.style.left = '50%';
+                modal.style.transform = 'translateX(-50%)';
+                break;
+            case 'center-bottom':
+                widgetButton.style.bottom = '10px';
+                widgetButton.style.left = '50%';
+                widgetButton.style.transform = 'translateX(-50%)';
+                modal.style.bottom = '10px';
+                modal.style.left = '50%';
+                modal.style.transform = 'translateX(-50%)';
+                break;
+            case 'left':
+                widgetButton.style.left = '10px';
+                widgetButton.style.right = 'unset';
+                modal.style.left = '0';
+                modal.style.right = 'unset';
+                break;
+            case 'right':
+            default:
+                widgetButton.style.right = '10px';
+                widgetButton.style.left = 'unset';
+                modal.style.right = '0';
+                modal.style.left = 'unset';
+                break;
         }
 
         // Handle click on the widget button
