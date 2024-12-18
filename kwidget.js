@@ -66,10 +66,12 @@
         const modalColor = widgetElement.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
         const widgetPosition = widgetElement.getAttribute('position') || 'right'; // Default position
         const widgetIcon = widgetElement.getAttribute('icon') || '⚙️'; // Default icon
+        const buttonColor = widgetElement.getAttribute('buttoncolor') || '#007bff'; // Default button color
 
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
         widgetButton.innerHTML = widgetIcon; // Display the emoji/icon
+        widgetButton.style.backgroundColor = buttonColor; // Apply custom button color
         document.body.appendChild(widgetButton);
 
         const modal = document.createElement('div');
