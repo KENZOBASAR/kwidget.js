@@ -1,5 +1,3 @@
-// kwidget.js
-// An api from KCR to insert widgets to HTML
 (function () {
     // Create and apply styles dynamically
     const style = document.createElement('style');
@@ -17,6 +15,9 @@
             border-radius: 50%;
             font-size: 20px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .modal {
             display: none;
@@ -58,17 +59,15 @@
     `;
     document.head.appendChild(style);
 
-    // Option to change the settings button emoji
-    const settingsButtonEmoji = '⚙️'; // Default emoji
-
     // Function to create a widget
     function createWidget(widgetElement, index) {
         const modalColor = widgetElement.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
         const widgetPosition = widgetElement.getAttribute('position') || 'right'; // Default position
+        const widgetIcon = widgetElement.getAttribute('icon') || '⚙️'; // Default icon
 
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
-        widgetButton.innerHTML = `W${index + 1}`; // Label buttons uniquely
+        widgetButton.innerHTML = widgetIcon; // Display the emoji/icon
         document.body.appendChild(widgetButton);
 
         const modal = document.createElement('div');
@@ -85,11 +84,6 @@
         modalFooter.textContent = 'Powered by kwidget';
         modal.appendChild(modalFooter);
 
-        const widgetSettingsButton = document.createElement('button');
-        widgetSettingsButton.classList.add('widget-settings');
-        widgetSettingsButton.innerHTML = settingsButtonEmoji; // Use the custom emoji here
-
-        widgetButton.appendChild(widgetSettingsButton);
         document.body.appendChild(modal);
 
         // Adjust position based on the "position" attribute
@@ -107,13 +101,6 @@
 
         // Handle click on the widget button
         widgetButton.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalContent.innerHTML = widgetElement.innerHTML;
-            widgetElement.style.display = 'none';
-        });
-
-        // Handle click on the settings button
-        widgetSettingsButton.addEventListener('click', () => {
             modal.style.display = 'block';
             modalContent.innerHTML = widgetElement.innerHTML;
             widgetElement.style.display = 'none';
