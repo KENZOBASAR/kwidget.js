@@ -1,7 +1,3 @@
-Share
-
-
-You said:
 // kwidget
 // An api from KCR to add widgets to html.
 (function () {
