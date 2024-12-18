@@ -1,3 +1,5 @@
+// kwidget.js
+// An api from KCR to insert widgets to HTML
 (function () {
     // Create and apply styles dynamically
     const style = document.createElement('style');
