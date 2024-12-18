@@ -37,34 +37,6 @@ Note: Right is the default position and you can directly add <widget> and it wil
    <p>Widget content.</p>
 </widget>
 ```
-## For top-left
-```
-<script src="kwidget.js">
-<widget position="top-left">
-   <p>Widget content.</p>
-</widget>
-```
-## For bottom-left
-```
-<script src="kwidget.js">
-<widget position="bottom-left">
-   <p>Widget content.</p>
-</widget>
-```
-## For bottom-top
-```
-<script src="kwidget.js">
-<widget position="bottom-top">
-   <p>Widget content.</p>
-</widget>
-```
-## For top-right
-```
-<script src="kwidget.js">
-<widget position="top-right">
-   <p>Widget content.</p>
-</widget>
-```
 
 - Widget button icon -
 Set the widget button's icon default is ⚙ (Cog)
