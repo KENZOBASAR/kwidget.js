@@ -132,3 +132,40 @@ You can also change the color of the button that opens the widget
 </html>
 ```
 You can also replace the colors with hex codes of colors.
+- Widget gradients -
+The widget's background color can also be changed to gradients like-
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<widget gradient="blue; red">
+   <p>Widget Content</p>
+</widget>
+    <script src="kwidget.js"></script>
+</body>
+</html>
+```
+You can Also use hex codes as well
+- Widget button gradient -
+Change the color of the button which opens the widget/PopUp
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<widget buttongradient="blue; green">
+   <p>Widget Content</p>
+</widget>
+    <script src="kwidget.js"></script>
+</body>
+</html>
+```
+*Note: Attributes can be mixed, Not 1 attribute can be used at a time, You can use as many attributes that you want*
+-------------------------------------------------------------------------------------------------------------------
