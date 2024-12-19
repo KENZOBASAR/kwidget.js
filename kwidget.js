@@ -1,5 +1,5 @@
-// kwidget.js
-// An api from KCR to create widgets in HTML.
+// kwidget
+// An api from KCR to make a widget with customizablity.
 (function () {
     // Create and apply styles dynamically
     const style = document.createElement('style');
@@ -27,7 +27,6 @@
             top: 0;
             width: 300px;
             height: 90%;
-            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 10px;
             overflow-y: auto;
@@ -64,19 +63,33 @@
     // Function to create a widget
     function createWidget(widgetElement, index) {
         const modalColor = widgetElement.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
+        const gradient = widgetElement.getAttribute('gradient'); // Gradient attribute
         const widgetPosition = widgetElement.getAttribute('position') || 'right'; // Default position
         const widgetIcon = widgetElement.getAttribute('icon') || '⚙️'; // Default icon
         const buttonColor = widgetElement.getAttribute('buttoncolor') || '#007bff'; // Default button color
+        const buttonGradient = widgetElement.getAttribute('buttongradient'); // Gradient for the button
 
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
         widgetButton.innerHTML = widgetIcon; // Display the emoji/icon
-        widgetButton.style.backgroundColor = buttonColor; // Apply custom button color
+
+        // Apply button gradient or fallback to single color
+        if (buttonGradient) {
+            widgetButton.style.background = `linear-gradient(to bottom, ${buttonGradient.split(';').join(',')})`;
+        } else {
+            widgetButton.style.backgroundColor = buttonColor; // Fallback to a single color
+        }
+
         document.body.appendChild(widgetButton);
 
         const modal = document.createElement('div');
         modal.classList.add('modal');
-        modal.style.backgroundColor = modalColor; // Set modal background color
+        if (gradient) {
+            // Set gradient background if attribute is present
+            modal.style.background = `linear-gradient(to bottom, ${gradient.split(';').join(',')})`;
+        } else {
+            modal.style.backgroundColor = modalColor; // Fallback to single color
+        }
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
         modalContent.innerHTML = '<p>Loading widget content...</p>';
