@@ -25,14 +25,14 @@
             display: none;
             position: fixed;
             top: 0;
-            width: 300px;
+            width: 300px; /* Default width */
             height: 90%;
             color: white;
             padding: 10px;
             overflow-y: auto;
         }
         .modal-content {
-            background-color: #333;
+            background-color: #333; /* Default content color */
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 40px; /* Leave space for the footer */
@@ -80,10 +80,15 @@
     function createWidget(widgetElement, index) {
         const modalColor = widgetElement.getAttribute('color') || 'rgba(0, 0, 0, 0.7)'; // Default color
         const gradient = widgetElement.getAttribute('gradient'); // Gradient attribute
-        const widgetPosition = widgetElement.getAttribute('position') || 'right'; // Default position
+        const widgetPosition = widgetElement.getAttribute('position') || 'right'; // Default position (set to right)
         const widgetIcon = widgetElement.getAttribute('icon') || '⚙️'; // Default icon
         const buttonColor = widgetElement.getAttribute('buttoncolor') || '#007bff'; // Default button color
         const buttonGradient = widgetElement.getAttribute('buttongradient'); // Gradient for the button
+        const widthPercentage = widgetElement.getAttribute('width') || '300px'; // Default width (300px if not specified)
+
+        // Content-specific attributes
+        const contentColor = widgetElement.getAttribute('contentcolor'); // Content color
+        const contentGradient = widgetElement.getAttribute('contentgradient'); // Content gradient
 
         const widgetButton = document.createElement('button');
         widgetButton.classList.add('widget-button');
@@ -106,8 +111,20 @@
         } else {
             modal.style.backgroundColor = modalColor; // Fallback to single color
         }
+
+        // Set the width of the modal based on the width attribute
+        modal.style.width = widthPercentage;
+
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
+        
+        // Apply content gradient or color if provided
+        if (contentGradient) {
+            modalContent.style.background = `linear-gradient(to bottom, ${contentGradient.split(';').join(',')})`;
+        } else if (contentColor) {
+            modalContent.style.backgroundColor = contentColor; // Apply the content color if available
+        }
+
         modalContent.innerHTML = '<p>Loading widget content...</p>';
         modal.appendChild(modalContent);
 
