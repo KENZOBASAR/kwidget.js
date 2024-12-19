@@ -46,6 +46,22 @@
             color: white;
             pointer-events: none; /* Ensure it doesn’t interfere with clicks */
         }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5f5f;
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
         .widget-settings {
             position: absolute;
             top: 5px;
@@ -95,6 +111,12 @@
         modalContent.innerHTML = '<p>Loading widget content...</p>';
         modal.appendChild(modalContent);
 
+        // Add a close button to the modal
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('modal-close');
+        closeButton.innerHTML = '&times;'; // Close icon
+        modal.appendChild(closeButton);
+
         // Add footer to modal
         const modalFooter = document.createElement('div');
         modalFooter.classList.add('modal-footer');
@@ -121,6 +143,11 @@
             modal.style.display = 'block';
             modalContent.innerHTML = widgetElement.innerHTML;
             widgetElement.style.display = 'none';
+        });
+
+        // Close modal when clicking the close button
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
         });
 
         // Close modal when clicking outside
